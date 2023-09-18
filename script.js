@@ -1,7 +1,7 @@
 var port;
 
 function messageSenderAndReceiver() {
-  console.log('trigger messageSenderAndReceiver function');
+  console.log('message event received');
   // listen for messages
   window.addEventListener(
     "message",
