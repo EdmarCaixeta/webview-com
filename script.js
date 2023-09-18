@@ -23,9 +23,11 @@ document.addEventListener("DOMContentLoaded", function () {
   sendMessageButton.addEventListener("click", function () {
     // Send message to the WebView using window.postMessage()
     window.postMessage("Hello from the webpage");
-
+    console.log('before port');
     // Send the 'LOADING_CANCEL' message to the WebView
     if (port) {
+      console.log('found port');
+      console.log(port);
       port.postMessage("LOADING_CANCEL");
     }
   });
