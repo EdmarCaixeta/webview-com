@@ -1,3 +1,5 @@
+
+var port;
 function messageSenderAndReceiver() {
    // listen for messages
    window.addEventListener("message", function(event) {
