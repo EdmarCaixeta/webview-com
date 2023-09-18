@@ -5,8 +5,6 @@ function messageSenderAndReceiver() {
   window.addEventListener(
     "message",
     function (event) {
-      if (event.data == "capturePort") {
-        // capture port2 coming from the Dart side
         if (event.ports[0] != null) {
           // the port is ready for communication,
           // so you can use port.postMessage(message); wherever you want
@@ -17,7 +15,6 @@ function messageSenderAndReceiver() {
             console.log(event.data);
           };
         }
-      }
     },
     false
   );
