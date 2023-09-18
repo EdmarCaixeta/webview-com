@@ -6,21 +6,18 @@ function messageSenderAndReceiver() {
   window.addEventListener(
     "message",
     function (event) {
-        console.log('trigger message function');
-        console.log(event.ports[0]);
-        if (event.ports[0] != null) {
-          port = event.ports[0];
-          console.log('port assigned:', port);
-          port.onmessage = function (event) {
-            console.log('trigger onmessage function');
-            console.log(event.data);
-          };
-        }
+      console.log('trigger message function');
+      console.log(event.ports[0]);
+      port = event.ports[0];
+      console.log('port assigned:', port);
+      port.onmessage = function (event) {
+        console.log('trigger onmessage function');
+        console.log(event.data);
+      };
     },
     false
   );
 }
-
 document.addEventListener("DOMContentLoaded", function () {
   var sendMessageButton = document.getElementById("sendMessageButton");
 
