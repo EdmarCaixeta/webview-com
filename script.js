@@ -1,13 +1,18 @@
 var port;
 
 function messageSenderAndReceiver() {
+  console.log('trigger messageSenderAndReceiver function');
   // listen for messages
   window.addEventListener(
     "message",
     function (event) {
+        console.log('trigger message function');
+        console.log(event.ports[0]);
         if (event.ports[0] != null) {
+          console.log('changing port');
           port = event.ports[0];
           port.onmessage = function (event) {
+            console.log('trigger onmessage function');
             console.log(event.data);
           };
         }
