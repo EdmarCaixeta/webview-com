@@ -9,8 +9,8 @@ function messageSenderAndReceiver() {
         console.log('trigger message function');
         console.log(event.ports[0]);
         if (event.ports[0] != null) {
-          console.log('changing port');
           port = event.ports[0];
+          console.log('port assigned:', port);
           port.onmessage = function (event) {
             console.log('trigger onmessage function');
             console.log(event.data);
