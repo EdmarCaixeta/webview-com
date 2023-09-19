@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transmissão da Câmera</title>
+</head>
+<body>
+    <h1>Transmissão da Câmera</h1>
+    <video id="video" autoplay></video>
+    <button id="startButton">Iniciar Transmissão</button>
+    <button id="stopButton" style="display: none;">Parar Transmissão</button>
+    
+    <script>
+        const videoElement = document.getElementById('video');
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+
+        // Verifica se o navegador suporta a API de mídia getUserMedia
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function (stream) {
+                videoElement.srcObject = stream;
+                videoElement.play();
+            })
+            .catch(function (error) {
+                console.error('Erro ao acessar a câmera: ' + error);
+            });
+
+            startButton.addEventListener('click', function () {
+                startButton.style.display = 'none';
+                stopButton.style.display = 'inline';
+            });
+
+            stopButton.addEventListener('click', function () {
+                startButton.style.display = 'inline';
+                stopButton.style.display = 'none';
+            });
+        } else {
+            console.error('Seu navegador não suporta a API getUserMedia');
+        }
+    </script>
+</body>
+</html>
