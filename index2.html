@@ -5,7 +5,11 @@
 </head>
 <body>
     <h1>Transmissão da Câmera</h1>
-    <video id="video" autoplay></video>
+    <video
+autoPlay={true}
+playsInline={true}
+muted={true}
+ref={videoRef}></video>
     <button id="startButton">Iniciar Transmissão</button>
     <button id="stopButton" style="display: none;">Parar Transmissão</button>
     
